@@ -401,7 +401,7 @@ server: {
 
 ## 📝 License
 
-Part of the CodeOracle project for IBM Watsonx Challenge 2024.
+Part of the CodeOracle project for IBM BOB Hackathon 2026.
 
 ## 🤝 Contributing
 
@@ -418,4 +418,4 @@ For issues or questions, please open an issue in the repository.
 
 ---
 
-**Made with ❤️ for IBM Watsonx Challenge 2024**
+**Made with ❤️ for IBM BOB Hackathon 2026**

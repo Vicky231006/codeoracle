@@ -1,12 +1,12 @@
 # CodeOracle - AI-Powered Code Intelligence Platform
 
-> IBM watsonx.ai Hackathon Project
+> IBM BOB Hackathon Hackathon Project
 
 **Status**: ✅ Production Ready | **Version**: 1.0.0
 
 ## Overview
 
-CodeOracle is an AI-powered code intelligence platform that helps developers understand, analyze, and maintain complex codebases. Using IBM watsonx.ai's Granite models, CodeOracle provides automated architecture mapping, dependency analysis, risk detection, natural language Q&A, and impact prediction.
+CodeOracle is an AI-powered code intelligence platform that helps developers understand, analyze, and maintain complex codebases. Using IBM BOB Hackathon's Granite models, CodeOracle provides automated architecture mapping, dependency analysis, risk detection, natural language Q&A, and impact prediction.
 
 ### Key Features
 
@@ -56,7 +56,7 @@ CodeOracle is an AI-powered code intelligence platform that helps developers und
 │                        │                                   │
 │                        ▼                                   │
 │  ┌─────────────────────────────────────────────────────┐  │
-│  │         IBM watsonx.ai (Granite Models)             │  │
+│  │         IBM BOB Hackathon (Granite Models)             │  │
 │  │  - Natural language understanding                   │  │
 │  │  - Code analysis and reasoning                      │  │
 │  │  - Structured output generation                     │  │
@@ -81,7 +81,7 @@ CodeOracle is an AI-powered code intelligence platform that helps developers und
 
 - Python 3.9+
 - Node.js 16+ (for frontend)
-- IBM watsonx.ai API credentials
+- IBM BOB Hackathon API credentials
 
 ### Installation
 
@@ -102,7 +102,7 @@ cd ..
 
 # Configure environment
 cp .env.example .env
-# Edit .env with your IBM watsonx.ai credentials
+# Edit .env with your IBM BOB Hackathon credentials
 ```
 
 ### Configuration
@@ -110,7 +110,7 @@ cp .env.example .env
 Edit `.env` file:
 
 ```env
-# IBM watsonx.ai Configuration
+# IBM BOB Hackathon Configuration
 WATSONX_API_KEY=your_api_key_here
 WATSONX_PROJECT_ID=your_project_id_here
 WATSONX_URL=https://us-south.ml.cloud.ibm.com
@@ -180,7 +180,7 @@ python -m ingest.ingest /path/to/repository
 
 ### 2. AI Agents (`agents/`)
 
-Five specialized agents powered by IBM watsonx.ai Granite models.
+Five specialized agents powered by IBM BOB Hackathon Granite models.
 
 #### RepoMapper
 Maps repository architecture, identifies components and layers.
@@ -431,7 +431,7 @@ API_PORT=8000
 
 ### Model Configuration
 
-CodeOracle uses IBM watsonx.ai Granite models:
+CodeOracle uses IBM BOB Hackathon Granite models:
 - **Default:** `ibm/granite-3-8b-instruct`
 - **Alternative:** `ibm/granite-3-2b-instruct` (faster, less accurate)
 - **Alternative:** `ibm/granite-20b-multilingual` (more accurate, slower)
@@ -473,11 +473,11 @@ CodeOracle uses IBM watsonx.ai Granite models:
 - ✅ Implement authentication for API
 - ✅ Validate all user inputs
 - ✅ Use rate limiting
-- ✅ Review IBM watsonx.ai data privacy policies
+- ✅ Review IBM BOB Hackathon data privacy policies
 
 ### Data Privacy
 
-- Code is sent to IBM watsonx.ai for analysis
+- Code is sent to IBM BOB Hackathon for analysis
 - Review IBM's data privacy and security policies
 - Consider on-premises deployment for sensitive code
 - Implement data encryption at rest and in transit
@@ -583,7 +583,7 @@ See [CHECKLIST.md](CHECKLIST.md) for detailed completion status.
 ### Backend
 - **Python 3.11** - Core language
 - **FastAPI** - REST API framework
-- **IBM watsonx.ai** - AI/ML platform
+- **IBM BOB Hackathon** - AI/ML platform
 - **Granite Models** - LLM for code analysis
 
 ### Frontend
@@ -603,7 +603,7 @@ See [CHECKLIST.md](CHECKLIST.md) for detailed completion status.
 
 ## Cost Estimation
 
-### IBM watsonx.ai Usage
+### IBM BOB Hackathon Usage
 
 Approximate monthly costs (varies by usage):
 - **Light:** ~$50-100/month (100 analyses/day)
@@ -622,7 +622,7 @@ Approximate monthly costs (varies by usage):
 
 ## Acknowledgments
 
-- **IBM watsonx.ai** - AI platform and Granite models
+- **IBM BOB Hackathon** - AI platform and Granite models
 - **IBM Bob Hackathon** - Project inspiration
 - **Open Source Community** - Various libraries and tools
 

@@ -28,7 +28,7 @@ const About: React.FC = () => {
           structure, dependencies, risks, and potential improvements.
         </p>
         <p className="text-gray-700 dark:text-gray-300">
-          Built for the IBM Watsonx Challenge, CodeOracle leverages IBM's Granite models to
+          Built for the IBM BOB Hackathon, CodeOracle leverages IBM's Granite models to
           deliver accurate, context-aware analysis that helps teams make better decisions about
           their code.
         </p>
@@ -114,7 +114,7 @@ const About: React.FC = () => {
         </h2>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
           <div className="text-center p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
-            <p className="font-semibold text-gray-900 dark:text-white">IBM Watsonx</p>
+            <p className="font-semibold text-gray-900 dark:text-white">IBM BOB Hackathon</p>
             <p className="text-sm text-gray-600 dark:text-gray-400">AI Platform</p>
           </div>
           <div className="text-center p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
@@ -151,7 +151,7 @@ const About: React.FC = () => {
           making your development workflow more efficient and enjoyable.
         </p>
         <p className="text-white/90">
-          Created for the IBM Watsonx Challenge 2024
+          Created for the IBM BOB Hackathon 2026
         </p>
       </div>
     </div>
