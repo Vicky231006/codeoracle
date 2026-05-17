@@ -1,11 +1,10 @@
 /**
  * Test setup configuration
  */
-import { expect, afterEach } from 'vitest';
+import { afterEach } from 'vitest';
 import { cleanup } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
-// Cleanup after each test
 afterEach(() => {
   cleanup();
 });
@@ -26,13 +25,15 @@ Object.defineProperty(window, 'matchMedia', {
 });
 
 // Mock localStorage
-const localStorageMock = {
-  getItem: (key: string) => null,
-  setItem: (key: string, value: string) => {},
-  removeItem: (key: string) => {},
+const localStorageMock: Storage = {
+  getItem: () => null,
+  setItem: () => {},
+  removeItem: () => {},
   clear: () => {},
+  get length() { return 0; },
+  key: () => null,
 };
 
-global.localStorage = localStorageMock as Storage;
+globalThis.localStorage = localStorageMock;
 
 // Made with Bob
