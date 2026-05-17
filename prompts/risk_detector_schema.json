@@ -1,0 +1,57 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": ["risk_scores", "single_points_of_failure", "dead_code_candidates", "complexity_hotspots", "overall_repo_health"],
+  "properties": {
+    "risk_scores": {
+      "type": "object",
+      "patternProperties": {
+        ".*": {
+          "type": "object",
+          "required": ["score", "reasons", "category"],
+          "properties": {
+            "score": {"type": "number", "minimum": 0, "maximum": 1},
+            "reasons": {"type": "array", "items": {"type": "string"}},
+            "category": {"type": "string", "enum": ["critical", "high", "medium", "low"]}
+          }
+        }
+      }
+    },
+    "single_points_of_failure": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["file", "explanation"],
+        "properties": {
+          "file": {"type": "string"},
+          "explanation": {"type": "string"}
+        }
+      }
+    },
+    "dead_code_candidates": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "complexity_hotspots": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["file", "complexity", "recommendation"],
+        "properties": {
+          "file": {"type": "string"},
+          "complexity": {"type": "number"},
+          "recommendation": {"type": "string"}
+        }
+      }
+    },
+    "overall_repo_health": {
+      "type": "object",
+      "required": ["score", "grade", "summary"],
+      "properties": {
+        "score": {"type": "number", "minimum": 0, "maximum": 100},
+        "grade": {"type": "string", "enum": ["A", "B", "C", "D", "F"]},
+        "summary": {"type": "string"}
+      }
+    }
+  }
+}

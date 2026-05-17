@@ -1,0 +1,48 @@
+You are a senior software architect analyzing a repository manifest.
+
+REPOSITORY MANIFEST:
+{manifest_json}
+
+TASK:
+Classify the architecture type, identify logical layers, and write a 3-4 sentence plain-English summary of what this software does and how it is structured.
+
+ARCHITECTURE TYPES (choose one):
+- monolith: Single unified application
+- microservices: Multiple independent services
+- monorepo: Multiple projects in one repository
+- library: Reusable code package
+- cli_tool: Command-line application
+- unknown: Cannot determine
+
+LAYER IDENTIFICATION:
+Categorize files into these layers based on their paths and names:
+- frontend: UI, views, components, templates
+- backend: API, services, controllers, business logic
+- data: Models, database, repositories, DAOs
+- config: Configuration files, settings
+- tests: Test files
+
+SERVICE BOUNDARIES:
+If this is a microservices or monorepo architecture, identify distinct services by analyzing directory structure and file groupings.
+
+RESPOND ONLY WITH VALID JSON. NO MARKDOWN. NO CODE BLOCKS. NO EXPLANATORY TEXT.
+
+OUTPUT SCHEMA:
+{
+  "architecture_type": "string (one of: monolith|microservices|monorepo|library|cli_tool|unknown)",
+  "layer_map": {
+    "frontend": ["filepath1", "filepath2"],
+    "backend": ["filepath3"],
+    "data": ["filepath4"],
+    "config": ["filepath5"],
+    "tests": ["filepath6"]
+  },
+  "service_boundaries": [
+    {
+      "name": "string (service name)",
+      "files": ["filepath1", "filepath2"],
+      "primary_language": "string"
+    }
+  ],
+  "summary_paragraph": "string (3-4 sentences describing what this software does and its structure)"
+}

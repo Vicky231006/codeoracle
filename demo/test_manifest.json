@@ -1,0 +1,203 @@
+{
+  "repo_name": "test_repo",
+  "language_primary": "python",
+  "total_files": 4,
+  "total_lines": 128,
+  "ingested_at": "2026-05-16T23:07:28+05:30",
+  "files": [
+    {
+      "path": "config.py",
+      "language": "python",
+      "lines": 18,
+      "size_bytes": 278,
+      "imports": [],
+      "exports": [],
+      "functions": [],
+      "classes": [],
+      "complexity_score": 0.0,
+      "last_modified": null,
+      "is_test_file": false,
+      "is_config_file": true,
+      "raw_content": "\"\"\"\nConfiguration file for the test application.\n\"\"\"\n\nAPP_NAME = \"TestApp\"\nVERSION = \"1.0.0\"\nDEBUG = True\n\n# Database configuration\nDATABASE_URL = \"sqlite:///test.db\"\nDATABASE_POOL_SIZE = 5\n\n# API configuration\nAPI_TIMEOUT = 30\nAPI_RETRIES = 3\n\n# Made with Bob\n"
+    },
+    {
+      "path": "main.py",
+      "language": "python",
+      "lines": 26,
+      "size_bytes": 478,
+      "imports": [
+        "config.VERSION",
+        "utils.calculate_sum",
+        "config",
+        "utils",
+        "config.APP_NAME",
+        "utils.format_output"
+      ],
+      "exports": [
+        "main"
+      ],
+      "functions": [
+        "main"
+      ],
+      "classes": [],
+      "complexity_score": 10.0,
+      "last_modified": null,
+      "is_test_file": false,
+      "is_config_file": false,
+      "raw_content": "\"\"\"\nMain entry point for the test application.\n\"\"\"\n\nfrom utils import calculate_sum, format_output\nfrom config import APP_NAME, VERSION\n\n\ndef main():\n    \"\"\"Main function that orchestrates the application.\"\"\"\n    print(f\"{APP_NAME} v{VERSION}\")\n    \n    numbers = [1, 2, 3, 4, 5]\n    total = calculate_sum(numbers)\n    \n    result = format_output(total)\n    print(result)\n    \n    return 0\n\n\nif __name__ == \"__main__\":\n    exit(main())\n\n# Made with Bob\n"
+    },
+    {
+      "path": "utils.py",
+      "language": "python",
+      "lines": 45,
+      "size_bytes": 803,
+      "imports": [],
+      "exports": [
+        "calculate_sum",
+        "format_output",
+        "helper_function"
+      ],
+      "functions": [
+        "calculate_sum",
+        "format_output",
+        "helper_function"
+      ],
+      "classes": [],
+      "complexity_score": 20.0,
+      "last_modified": null,
+      "is_test_file": false,
+      "is_config_file": false,
+      "raw_content": "\"\"\"\nUtility functions for the test application.\n\"\"\"\n\n\ndef calculate_sum(numbers):\n    \"\"\"\n    Calculate the sum of a list of numbers.\n    \n    Args:\n        numbers: List of numbers to sum\n        \n    Returns:\n        Sum of all numbers\n    \"\"\"\n    total = 0\n    for num in numbers:\n        total += num\n    return total\n\n\ndef format_output(value):\n    \"\"\"\n    Format a value for output.\n    \n    Args:\n        value: Value to format\n        \n    Returns:\n        Formatted string\n    \"\"\"\n    if value > 100:\n        return f\"Large value: {value}\"\n    elif value > 10:\n        return f\"Medium value: {value}\"\n    else:\n        return f\"Small value: {value}\"\n\n\ndef helper_function():\n    \"\"\"A helper function that does something.\"\"\"\n    pass\n\n# Made with Bob\n"
+    },
+    {
+      "path": "tests\\test_main.py",
+      "language": "python",
+      "lines": 39,
+      "size_bytes": 1029,
+      "imports": [
+        "utils.calculate_sum",
+        "unittest",
+        "main",
+        "utils",
+        "main.main",
+        "utils.format_output"
+      ],
+      "exports": [
+        "TestMain"
+      ],
+      "functions": [
+        "test_calculate_sum",
+        "test_format_output_small",
+        "test_format_output_medium",
+        "test_format_output_large"
+      ],
+      "classes": [
+        "TestMain"
+      ],
+      "complexity_score": 10.0,
+      "last_modified": null,
+      "is_test_file": true,
+      "is_config_file": false,
+      "raw_content": "\"\"\"\nTest suite for main module.\n\"\"\"\n\nimport unittest\nfrom main import main\nfrom utils import calculate_sum, format_output\n\n\nclass TestMain(unittest.TestCase):\n    \"\"\"Test cases for main module.\"\"\"\n    \n    def test_calculate_sum(self):\n        \"\"\"Test the calculate_sum function.\"\"\"\n        numbers = [1, 2, 3, 4, 5]\n        result = calculate_sum(numbers)\n        self.assertEqual(result, 15)\n    \n    def test_format_output_small(self):\n        \"\"\"Test format_output with small value.\"\"\"\n        result = format_output(5)\n        self.assertIn(\"Small value\", result)\n    \n    def test_format_output_medium(self):\n        \"\"\"Test format_output with medium value.\"\"\"\n        result = format_output(50)\n        self.assertIn(\"Medium value\", result)\n    \n    def test_format_output_large(self):\n        \"\"\"Test format_output with large value.\"\"\"\n        result = format_output(150)\n        self.assertIn(\"Large value\", result)\n\n\nif __name__ == \"__main__\":\n    unittest.main()\n\n# Made with Bob\n"
+    }
+  ],
+  "dependency_graph": {
+    "nodes": [
+      {
+        "id": "config.py",
+        "label": "config.py"
+      },
+      {
+        "id": "main.py",
+        "label": "main.py"
+      },
+      {
+        "id": "utils.py",
+        "label": "utils.py"
+      },
+      {
+        "id": "tests\\test_main.py",
+        "label": "test_main.py"
+      }
+    ],
+    "edges": [
+      {
+        "source": "main.py",
+        "target": "config.py",
+        "type": "import"
+      },
+      {
+        "source": "main.py",
+        "target": "utils.py",
+        "type": "import"
+      },
+      {
+        "source": "main.py",
+        "target": "config.py",
+        "type": "import"
+      },
+      {
+        "source": "main.py",
+        "target": "utils.py",
+        "type": "import"
+      },
+      {
+        "source": "main.py",
+        "target": "config.py",
+        "type": "import"
+      },
+      {
+        "source": "main.py",
+        "target": "utils.py",
+        "type": "import"
+      },
+      {
+        "source": "tests\\test_main.py",
+        "target": "utils.py",
+        "type": "import"
+      },
+      {
+        "source": "tests\\test_main.py",
+        "target": "main.py",
+        "type": "import"
+      },
+      {
+        "source": "tests\\test_main.py",
+        "target": "utils.py",
+        "type": "import"
+      },
+      {
+        "source": "tests\\test_main.py",
+        "target": "main.py",
+        "type": "import"
+      },
+      {
+        "source": "tests\\test_main.py",
+        "target": "utils.py",
+        "type": "import"
+      }
+    ]
+  },
+  "entry_points": [
+    "main.py",
+    "tests\\test_main.py"
+  ],
+  "external_dependencies": [
+    {
+      "name": "requests",
+      "version": "2.28.0"
+    },
+    {
+      "name": "flask",
+      "version": "2.3.0"
+    },
+    {
+      "name": "pytest",
+      "version": "7.0.0"
+    },
+    {
+      "name": "numpy",
+      "version": "1.24.0"
+    }
+  ]
+}

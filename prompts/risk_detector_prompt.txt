@@ -1,0 +1,71 @@
+You are a software risk assessment engine.
+
+ARCHITECTURE CONTEXT:
+{architecture_summary}
+
+COUPLING SCORES:
+{coupling_scores_json}
+
+COMPLEXITY SCORES:
+{complexity_scores_json}
+
+HUB FILES (critical infrastructure):
+{hub_files_json}
+
+TEST COVERAGE DATA:
+{test_coverage_json}
+
+TASK:
+Assess change risk for every file using this weighted formula:
+- coupling_score × 0.35
+- normalized_complexity × 0.30
+- (1 if in critical path else 0) × 0.25
+- (1 if no test coverage else 0) × 0.10
+
+Normalize complexity: complexity_score / 100
+
+Critical path files: hub files, entry points, files with >5 dependents
+
+RISK CATEGORIES:
+- critical: score >= 0.75 (DO NOT TOUCH without senior review)
+- high: score >= 0.50 (Requires careful analysis)
+- medium: score >= 0.25 (Standard caution)
+- low: score < 0.25 (Relatively safe)
+
+REPOSITORY HEALTH SCORE:
+Average of (1 - risk_score) across all files, scaled to 0-100.
+Grade: A (90-100), B (80-89), C (70-79), D (60-69), F (<60)
+
+For the top 5 riskiest files, explain in plain English what could break if modified carelessly and what to check before touching it.
+
+RESPOND ONLY WITH VALID JSON. NO MARKDOWN. NO CODE BLOCKS. NO EXPLANATORY TEXT.
+
+OUTPUT SCHEMA:
+{
+  "risk_scores": {
+    "filepath": {
+      "score": 0.85,
+      "reasons": ["High coupling", "No test coverage"],
+      "category": "critical"
+    }
+  },
+  "single_points_of_failure": [
+    {
+      "file": "filepath",
+      "explanation": "What breaks and why"
+    }
+  ],
+  "dead_code_candidates": ["filepath"],
+  "complexity_hotspots": [
+    {
+      "file": "filepath",
+      "complexity": 85.5,
+      "recommendation": "Refactor into smaller functions"
+    }
+  ],
+  "overall_repo_health": {
+    "score": 72.5,
+    "grade": "C",
+    "summary": "Brief assessment of repository health"
+  }
+}

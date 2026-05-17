@@ -1,0 +1,66 @@
+version: '3.8'
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: codeoracle-api
+    ports:
+      - "8000:8000"
+    environment:
+      # IBM watsonx.ai Configuration
+      - WATSONX_API_KEY=${WATSONX_API_KEY}
+      - WATSONX_PROJECT_ID=${WATSONX_PROJECT_ID}
+      - WATSONX_URL=${WATSONX_URL:-https://us-south.ml.cloud.ibm.com}
+      
+      # Model Configuration
+      - WATSONX_MODEL=${WATSONX_MODEL:-ibm/granite-3-8b-instruct}
+      - WATSONX_MAX_TOKENS=${WATSONX_MAX_TOKENS:-2048}
+      - WATSONX_TEMPERATURE=${WATSONX_TEMPERATURE:-0.7}
+      
+      # API Configuration
+      - API_HOST=0.0.0.0
+      - API_PORT=8000
+      - API_DEBUG=${API_DEBUG:-false}
+      
+      # Logging
+      - LOG_LEVEL=${LOG_LEVEL:-INFO}
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+    networks:
+      - codeoracle-network
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.prod
+    container_name: codeoracle-frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - VITE_API_URL=${VITE_API_URL:-http://localhost:8000}
+    depends_on:
+      api:
+        condition: service_healthy
+    restart: unless-stopped
+    networks:
+      - codeoracle-network
+
+networks:
+  codeoracle-network:
+    driver: bridge
+
+volumes:
+  data:
+  logs:
+
+# Made with Bob

@@ -1,0 +1,48 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": ["coupling_scores", "circular_dependencies", "orphan_files", "hub_files", "external_risk"],
+  "properties": {
+    "coupling_scores": {
+      "type": "object",
+      "patternProperties": {
+        ".*": {"type": "number", "minimum": 0, "maximum": 1}
+      }
+    },
+    "circular_dependencies": {
+      "type": "array",
+      "items": {
+        "type": "array",
+        "items": {"type": "string"}
+      }
+    },
+    "orphan_files": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "hub_files": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["file", "imported_by_count", "explanation"],
+        "properties": {
+          "file": {"type": "string"},
+          "imported_by_count": {"type": "integer", "minimum": 0},
+          "explanation": {"type": "string"}
+        }
+      }
+    },
+    "external_risk": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["package", "imported_by_count", "has_known_issues"],
+        "properties": {
+          "package": {"type": "string"},
+          "imported_by_count": {"type": "integer"},
+          "has_known_issues": {"type": "boolean"}
+        }
+      }
+    }
+  }
+}

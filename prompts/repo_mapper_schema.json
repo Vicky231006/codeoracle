@@ -1,0 +1,34 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": ["architecture_type", "layer_map", "service_boundaries", "summary_paragraph"],
+  "properties": {
+    "architecture_type": {
+      "type": "string",
+      "enum": ["monolith", "microservices", "monorepo", "library", "cli_tool", "unknown"]
+    },
+    "layer_map": {
+      "type": "object",
+      "properties": {
+        "frontend": {"type": "array", "items": {"type": "string"}},
+        "backend": {"type": "array", "items": {"type": "string"}},
+        "data": {"type": "array", "items": {"type": "string"}},
+        "config": {"type": "array", "items": {"type": "string"}},
+        "tests": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "service_boundaries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "files", "primary_language"],
+        "properties": {
+          "name": {"type": "string"},
+          "files": {"type": "array", "items": {"type": "string"}},
+          "primary_language": {"type": "string"}
+        }
+      }
+    },
+    "summary_paragraph": {"type": "string", "minLength": 50}
+  }
+}

@@ -1,0 +1,52 @@
+You are a dependency analysis engine analyzing software architecture.
+
+DEPENDENCY GRAPH:
+{dependency_graph_json}
+
+FILE IMPORT DATA:
+{files_imports_json}
+
+TOTAL FILES IN REPOSITORY: {total_files}
+
+TASK:
+Analyze dependencies to identify:
+1. Coupling scores for each file (0.0 to 1.0)
+2. Circular dependency chains
+3. Orphaned files (no imports, no exports)
+4. Hub files (imported by many others - critical infrastructure)
+5. External dependency risks
+
+COUPLING SCORE FORMULA:
+(number of files importing THIS file + number of files THIS file imports) / total_files
+Clamp result to 0.0-1.0 range.
+
+HUB FILE THRESHOLD: Files imported by 5 or more other files.
+
+CIRCULAR DEPENDENCY: Any chain where file A imports B, B imports C, C imports A (or any length cycle).
+
+RESPOND ONLY WITH VALID JSON. NO MARKDOWN. NO CODE BLOCKS. NO EXPLANATORY TEXT.
+
+OUTPUT SCHEMA:
+{
+  "coupling_scores": {
+    "filepath": 0.75
+  },
+  "circular_dependencies": [
+    ["file1.py", "file2.py", "file1.py"]
+  ],
+  "orphan_files": ["filepath"],
+  "hub_files": [
+    {
+      "file": "filepath",
+      "imported_by_count": 8,
+      "explanation": "One sentence explaining why this is central and what breaks if it changes"
+    }
+  ],
+  "external_risk": [
+    {
+      "package": "string",
+      "imported_by_count": 5,
+      "has_known_issues": false
+    }
+  ]
+}

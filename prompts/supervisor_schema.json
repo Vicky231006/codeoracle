@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": ["intent", "agents_to_invoke", "reasoning", "is_multi_intent"],
+  "properties": {
+    "intent": {"type": "string"},
+    "agents_to_invoke": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["repo_mapper", "dependency_analyst", "risk_detector", "knowledge_synthesizer", "impact_simulator"]
+      }
+    },
+    "reasoning": {"type": "string"},
+    "is_multi_intent": {"type": "boolean"}
+  }
+}

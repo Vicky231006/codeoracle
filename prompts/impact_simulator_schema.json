@@ -1,0 +1,49 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": ["scenario", "directly_affected", "transitively_affected", "services_affected", "estimated_risk_level", "mitigation_steps", "confidence"],
+  "properties": {
+    "scenario": {"type": "string"},
+    "directly_affected": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["file", "reason"],
+        "properties": {
+          "file": {"type": "string"},
+          "reason": {"type": "string"}
+        }
+      }
+    },
+    "transitively_affected": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["file", "hops", "reason"],
+        "properties": {
+          "file": {"type": "string"},
+          "hops": {"type": "integer", "minimum": 1, "maximum": 3},
+          "reason": {"type": "string"}
+        }
+      }
+    },
+    "services_affected": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "estimated_risk_level": {
+      "type": "string",
+      "enum": ["catastrophic", "high", "medium", "low", "negligible"]
+    },
+    "mitigation_steps": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 5,
+      "items": {"type": "string"}
+    },
+    "confidence": {
+      "type": "string",
+      "enum": ["high", "medium", "low"]
+    }
+  }
+}

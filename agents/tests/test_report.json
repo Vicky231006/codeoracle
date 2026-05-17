@@ -1,0 +1,187 @@
+{
+  "timestamp": "2026-05-16T00:00:47.168786",
+  "duration_seconds": 15.589304447174072,
+  "results": {
+    "llm_connection": {
+      "total": 7,
+      "passed": 7,
+      "failed": 0,
+      "results": [
+        {
+          "test": "Groq LLM Initialization",
+          "passed": true,
+          "message": "Model: llama-3.3-70b-versatile"
+        },
+        {
+          "test": "Basic Text Generation",
+          "passed": true,
+          "message": "Response length: 11 chars"
+        },
+        {
+          "test": "Simple JSON Parsing",
+          "passed": true,
+          "message": "Parsed: {\"status\": \"ok\", \"value\": 42}"
+        },
+        {
+          "test": "Complex JSON Parsing",
+          "passed": true,
+          "message": "Files: 2, Metadata keys: ['total', 'timestamp']"
+        },
+        {
+          "test": "Error Handling - Invalid Key",
+          "passed": true,
+          "message": "Correctly caught error: Exception"
+        },
+        {
+          "test": "Error Handling - Malformed JSON",
+          "passed": true,
+          "message": "Successfully handled JSON parsing"
+        },
+        {
+          "test": "get_llm Factory Function",
+          "passed": true,
+          "message": "Successfully created GroqLLM"
+        }
+      ]
+    },
+    "agents": {
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "results": [
+        {
+          "test": "RepoMapper - Initialization",
+          "passed": true,
+          "message": "Agent name: repo_mapper"
+        },
+        {
+          "test": "RepoMapper - Process",
+          "passed": true,
+          "message": "Architecture: monolith"
+        },
+        {
+          "test": "RepoMapper - Schema Validation",
+          "passed": true,
+          "message": "Output matches schema"
+        },
+        {
+          "test": "DependencyAnalyst - Initialization",
+          "passed": true,
+          "message": "Agent name: dependency_analyst"
+        },
+        {
+          "test": "DependencyAnalyst - Process",
+          "passed": true,
+          "message": "Hub files found: 0"
+        },
+        {
+          "test": "DependencyAnalyst - Schema Validation",
+          "passed": true,
+          "message": "Output matches schema"
+        },
+        {
+          "test": "RiskDetector - Initialization",
+          "passed": true,
+          "message": "Agent name: risk_detector"
+        },
+        {
+          "test": "RiskDetector - Process",
+          "passed": true,
+          "message": "Repo health grade: C"
+        },
+        {
+          "test": "RiskDetector - Schema Validation",
+          "passed": true,
+          "message": "Output matches schema"
+        },
+        {
+          "test": "ImpactSimulator - Initialization",
+          "passed": true,
+          "message": "Agent name: impact_simulator"
+        },
+        {
+          "test": "ImpactSimulator - Process",
+          "passed": true,
+          "message": "Risk level: high"
+        },
+        {
+          "test": "ImpactSimulator - Schema Validation",
+          "passed": true,
+          "message": "Output matches schema"
+        },
+        {
+          "test": "KnowledgeSynthesizer - Initialization",
+          "passed": true,
+          "message": "Agent name: knowledge_synthesizer"
+        },
+        {
+          "test": "KnowledgeSynthesizer - Process",
+          "passed": true,
+          "message": "Confidence: high"
+        },
+        {
+          "test": "KnowledgeSynthesizer - Schema Validation",
+          "passed": true,
+          "message": "Output matches schema"
+        },
+        {
+          "test": "Error Handling - Missing Parameters",
+          "passed": true,
+          "message": "Correctly caught error: ValueError"
+        }
+      ]
+    },
+    "integration": {
+      "total": 8,
+      "passed": 8,
+      "failed": 0,
+      "results": [
+        {
+          "test": "Load Test Manifest",
+          "passed": true,
+          "message": "Loaded manifest with 4 files"
+        },
+        {
+          "test": "RepoMapper Workflow",
+          "passed": true,
+          "message": "Architecture: monolith, Layers: 5"
+        },
+        {
+          "test": "DependencyAnalyst Workflow",
+          "passed": true,
+          "message": "Hub files: 0, Circular deps: 0"
+        },
+        {
+          "test": "RiskDetector Workflow",
+          "passed": true,
+          "message": "Health grade: C, Critical files: 0"
+        },
+        {
+          "test": "ImpactSimulator Workflow",
+          "passed": true,
+          "message": "Directly affected: 1, Risk: medium"
+        },
+        {
+          "test": "KnowledgeSynthesizer Workflow",
+          "passed": true,
+          "message": "Confidence: high, Follow-ups: 3"
+        },
+        {
+          "test": "Data Flow Consistency",
+          "passed": true,
+          "message": "4/4 files have coupling scores"
+        },
+        {
+          "test": "End-to-End Timing",
+          "passed": true,
+          "message": "All agents completed (timing from cache: 0.00s)"
+        }
+      ]
+    }
+  },
+  "summary": {
+    "total_tests": 31,
+    "total_passed": 31,
+    "total_failed": 0
+  }
+}
