@@ -620,43 +620,6 @@ Approximate monthly costs (varies by usage):
 
 ---
 
-## Roadmap
-
-### Version 1.1 (Q2 2024)
-- [ ] Add Java and Go language support
-- [ ] Implement caching layer
-- [ ] Add user authentication
-- [ ] Enhanced visualization
-
-### Version 1.2 (Q3 2024)
-- [ ] Team collaboration features
-- [ ] Historical analysis tracking
-- [ ] Custom agent configurations
-- [ ] Batch processing
-
-### Version 2.0 (Q4 2024)
-- [ ] Multi-repository analysis
-- [ ] Advanced security scanning
-- [ ] CI/CD integration
-- [ ] Enterprise features
-
----
-
-## License
-
-[Your License Here]
-
----
-
-## Support
-
-- **Documentation:** See docs above
-- **Issues:** GitHub Issues
-- **Email:** [Your Email]
-- **Community:** [Your Community Link]
-
----
-
 ## Acknowledgments
 
 - **IBM watsonx.ai** - AI platform and Granite models
@@ -664,17 +627,6 @@ Approximate monthly costs (varies by usage):
 - **Open Source Community** - Various libraries and tools
 
 ---
-
-## Team
-
-[Your Team Information]
-
----
-
-**Built with ❤️ using IBM watsonx.ai**
-
----
-
 ## Quick Links
 
 - 📚 [Full Documentation](#documentation)
